@@ -9,8 +9,8 @@ function Technology(tpn,ad,e,cd){
    	this.Technology0 = [];	
    
    	 this.getType = function(){
-    	   this.types = ['LargePerm','SmallPerm','FieldPerm','UnitAffectPerm','Temporary','LastAFewTurns','EasilyBroken','Invincible'];
-       
+    	   var types = ['LargePerm','SmallPerm','FieldPerm','UnitAffectPerm','Temporary','LastAFewTurns','EasilyBroken','Invincible'];
+       	    return types[i];
    	 };
     
    	 this.SetCheckType = function(i){
