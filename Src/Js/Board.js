@@ -95,8 +95,23 @@ function Board(){
      }else{console.log('Cannot Place This Unit Here')}
     
   };
+    this.removeCard = function(posx,posy){
+   	        var card = this.gameBoard[posx][posy];
+   	       
+   	        var keys = Object.keys(this.gameBoard[posx][posy]);
+   	       
+   	        for(var i = 0; i < keys.length;i++){
+   	        
+   	         if(keys[i] !== keys[0]){	
+   	          if(typeof card[keys[i]] !== 'function'){
+   	          	     card[keys[i]] = '';
+   	          }
+   	         }
+   	        }
+   	        //console.log(card);
+   };
 
-	this.gameBoard = this.generateBoard();
+    this.gameBoard = this.generateBoard();
     this.setGameRules();
 
 }
