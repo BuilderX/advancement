@@ -4,9 +4,12 @@ function Spell(spn,ad,e,cd){
 	this.type = '';
 	this.consumption = e;
 	this.coolDown = cd;
-	this.attachedTo = '';
-	 // attach to a unit 
+	this.attachedTo = null;
+	this.spellWornOff = false;
+			  // attach to a unit 
 	this.attachTo = function(u,a){
+		
+		
 		var attachmentCheck = function(u){
 			  
 			    u.hasAttachment = false;
@@ -17,12 +20,13 @@ function Spell(spn,ad,e,cd){
 	     		   return true;
 	     	 }
 		  };
+		  
 	 if(typeof u === 'object'){
 	   	if(a.Unit || a.Technology){
 	   		 u.attachedTo = a;
 	   		 a.hasAttachment = true;
 	   		 a.attachment = u.spellName;
-	     	
+	     	 console.log(u)
 	     	if(a.hasAttachment === true){
 	     	  if(a.Unit){
 	     	  if(a.hp < 0){
@@ -48,13 +52,13 @@ function Spell(spn,ad,e,cd){
 		   
 	};
 	this.deEquip = function(u,h){
-	 var b = u.attachTo;
-	  if(typeof u === 'object'){
+		
+		var b = u.attachTo;
+	 if(typeof u === 'object'){
 		   if(u.hasAttachment){
 		   	h.attachedTo = null;
 		   	u.hasAttachment = false;
 		    u.attachment = '';
-		   	
 		   }
 	 }	
 		   return b;
@@ -69,31 +73,29 @@ function Spell(spn,ad,e,cd){
 	}
 	
 	this.assignMagicType = function(i){
-		if(i > 8){
+		if(i < 8){
 		  this.magicTypes = ['EQUIP','SPEEDSPELL','SLOWSPELL','PERMENANT','HIDDEN','FIELD','DARK','POSSESSION'];
 		  
 		  return this.magicTypes[i];
 		}
-		return null;
+	 	 return null;
 	};
+	
 	this.isEquipped = function(){
 	  if(this.spellWornOff){
  	   if(this.attachedTo !== null || undefined){
-		    return true;
+		  	 	return true;
 	 	 }
 	 }
 	   	return false;
 	};
-	this.spellWornOff = false;
-
-
-
-	return {'Spell ':'',
+	return {
+	     	'Spell ':'',
 	        'spellName':this.spellName,
 	        'type':this.type,
 	        'abilityDesc':this.abilityDesc,
-	        'energy':this.energy,
-	        'coolDown':this.coolDown
-		
+	        'consumption':this.energy,
+	        'coolDown':this.coolDown,
+	        'obj':this
 	};
 }
