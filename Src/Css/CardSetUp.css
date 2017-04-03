@@ -1,0 +1,58 @@
+.box{
+     background:#AA8155;
+     width:110px;
+     height:160px;
+     border: 2px ridge #5E6079;
+}
+.nameBox {
+   background:#AA8155;
+   width:77.5%;
+   height:10px;
+   position:relative;
+   left:10px;
+   top:5px;
+   border:2px outset #5F5E2A;
+   font-size:5px;
+   text-align:center;
+}
+.imgBox{ background:rgba(100,100,10,1);
+   width:75%;
+   height:60px;  
+   position:relative;
+   top:-2px;
+   left:10%;
+   border:3px ridge #5F5E2A;
+  }
+body{
+  background:black;
+}
+img{
+   width:100%;
+   height:100%;
+}
+.description{
+    width:78%;
+    height:45px;
+    border:2px ridge #794024;
+    margin:10px;
+    font-size:5px;
+    text-align:center;
+    bottom: 0.1cm;
+    position:relative; 
+}
+#BlueName{
+  position:relative;
+  right:5px;
+}
+#starSet {
+    position:relative;
+    left:36px;
+}
+
+.stat {
+    position:relative;
+  top:35%;
+  left:20%;
+  
+  
+}
