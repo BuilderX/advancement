@@ -1,8 +1,10 @@
 function Board(){
 	this.gameBoard = [];
 	this.CardType = [];
-
-	  this.generateBoard = function(){
+	var that = this;
+	
+	
+	this.generateBoard = function(){
 		    var arr = [];
 		     for(var i = 0; i < 5;i++){
 		     	 arr.push([]);
@@ -11,7 +13,7 @@ function Board(){
 	};
 	
 	this.setGameRules = function(){
-    	for(var i =0; i < this.gameBoard.length;i++){
+    	                for(var i =0; i < this.gameBoard.length;i++){
 				    this.gameBoard[i].push(new Spell('','','','',''));
 					this.gameBoard[i].push(new Technology('','','','',''));
 					this.gameBoard[i].push(new Unit('','','','',''));
@@ -24,10 +26,9 @@ function Board(){
 	
    this.globalAffect = function (fn){
    	if(typeof fn === 'function'){
-   		
-	for(var i = 0; i < this.gameBoard.length;i++){
-		for(var j = 0; j < this.gameBoard[i].length;j++){
-			fn(this.gameBoard[i][j]);
+	  for(var i = 0; i < that.gameBoard.length;i++){
+		for(var j = 0; j < that.gameBoard[i].length;j++){
+			fn(that.gameBoard[i][j]);
    		  }
         }
 	  }
@@ -36,15 +37,19 @@ function Board(){
 		 this.field = ['EMP','METALSHEET','EARTH',"SPACE",'SPEED'];
 	   switch(this.field[i]){
 	   	  case 'EMP':
-	   	  	     this.globalAffect(fn);
+	   	  	     that.globalAffect(fn);
 	   	  break;
 	   	  case 'METALSHEET':
+			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'EARTH':
+			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'SPACE':
+			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'SPEED':
+			    that.globalAffect(fn);
 	   	  break;
 	   }	
 	};	
@@ -87,13 +92,13 @@ function Board(){
   	};
     var r = posOnBoard0(posOnBoard);
    	if(r === typ){
-     if(Object.keys(this.gameBoard[posx][posy])[0] === typ){
+     if(Object.keys(that.gameBoard[posx][posy])[0] === typ){
      	this.gameBoard[posx][posy] = obj }
      }else{console.log('Cannot Place This Unit Here')}
     
   };
    this.removeCard = function(posx,posy){
-   	        var card = this.gameBoard[posx][posy];
+   	        var card = that.gameBoard[posx][posy];
    	       
    	        var keys = Object.keys(this.gameBoard[posx][posy]);
    	       
