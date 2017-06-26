@@ -6,7 +6,10 @@ function Spell(spn,ad,e,cd){
 	this.coolDown = cd;
 	this.attachedTo = null;
 	this.spellWornOff = false;
+	this.currentTarget = '';
+   	this.occupied = false;
 			  // attach to a unit 
+
 	this.attachTo = function(u,a){
 		
 		
@@ -26,7 +29,7 @@ function Spell(spn,ad,e,cd){
 	   		 u.attachedTo = a;
 	   		 a.hasAttachment = true;
 	   		 a.attachment = u.spellName;
-	     	 console.log(u)
+	     	// console.log(u)
 	     	if(a.hasAttachment === true){
 	     	  if(a.Unit){
 	     	  if(a.hp < 0){
@@ -98,4 +101,15 @@ function Spell(spn,ad,e,cd){
 	        'coolDown':this.coolDown,
 	        'obj':this
 	};
+}
+
+function setUpSpell(sn,ty,con,swo,cd,ad,unit,spell){
+		spell.obj.spellName = sn;
+		spell.obj.type = ty;
+		spell.obj.consumption = con;
+		spell.obj.spellWornOff = swo;
+		spell.obj.coolDown = cd;
+		spell.obj.abilityDesc = ad;
+		spell.obj.attachTo(unit,spell);
+
 }
