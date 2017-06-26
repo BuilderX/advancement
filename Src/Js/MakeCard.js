@@ -1,4 +1,3 @@
-
 function makeCard(card){
 	if(card !== null){
 	var body = document.body;
@@ -38,5 +37,3 @@ function makeCard(card){
 	descr.appendChild(st);
 		
 	}
-	
-}
