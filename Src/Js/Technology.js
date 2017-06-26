@@ -7,6 +7,8 @@ function Technology(tpn,ad,e,cd){
 	this.coolDown = cd;
 	this.active = false;
 	this.isPermenant = false;
+	this.occupied = false;
+   	this.currentTarget = '';
     this.Technology0 = [];	
     
     this.getType = function(g){
@@ -45,4 +47,3 @@ function Technology(tpn,ad,e,cd){
     
 	return this;
 }
-
