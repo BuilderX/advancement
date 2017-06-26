@@ -1,0 +1,21 @@
+
+
+var AbilitiesList = {
+	'Thrust':function(a){
+               var damage = 40;
+               if(a.currentTarget){ a.currentTarget -= damage;}
+	         }
+}
+
+function createAbility(name,func){
+	     AbilitiesList[name] = func;
+}
+
+function unitTypeController(a){
+	this.endTimer = function(){};
+	this.setTimer = function(n){
+	setTimeout(function(){
+       if(a.coolDown){}},n);
+	};
+}
+
