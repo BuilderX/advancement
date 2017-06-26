@@ -72,7 +72,7 @@ function Board(){
      }
   };
   
- 	// works
+ 		// works
 	this.place = function(posx,posy,typ,obj,posOnBoard){
 		if(typeof obj !== 'object'){ return 'Not an object'}
 		var caro;
@@ -92,11 +92,13 @@ function Board(){
   	};
     var r = posOnBoard0(posOnBoard);
    	if(r === typ){
-     if(Object.keys(that.gameBoard[posx][posy])[0] === typ){
-     	this.gameBoard[posx][posy] = obj }
+     if(Object.keys(this.gameBoard[posx][posy])[0] === typ){
+     	this.gameBoard[posx][posy] = obj
+     	this.gameBoard[posx][posy].occupied = true;}
      }else{console.log('Cannot Place This Unit Here')}
     
   };
+	
    this.removeCard = function(posx,posy){
    	        var card = that.gameBoard[posx][posy];
    	       
@@ -113,6 +115,24 @@ function Board(){
    	        //console.log(card);
    };
 	this.gameBoard = this.generateBoard();
-    //this.setGameRules();
+        this.setGameRules();
 
 }
+
+
+
+var board = new Board();
+/*
+var u = new Unit('','','','','');
+var u1 = new Unit('100','','','','');
+var p = new Spell('','','','','');
+p.obj.attachTo(p,u);
+//p.obj.deEquip(u,p);
+p.obj.switchEquipment(u,u1);
+
+var spell =  new Spell();
+var tech = new Technology();
+
+board.place(1,3,'Unit',new Unit(100,15,6,['Thrust'],'Sub_saharan','Chieftan','Title5',10,4),0);
+
+/*
