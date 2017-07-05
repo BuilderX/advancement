@@ -130,3 +130,13 @@ var tech = new Technology();
 board.place(1,3,'Unit',new Unit(100,15,6,['Thrust'],'Sub_saharan','Chieftan','Title5',10,4),0);
 
 /*
+/*
+p.obj.attachTo(p,u);
+//p.obj.deEquip(u,p);
+p.obj.switchEquipment(u,u1);
+
+var spell =  new Spell();
+var tech = new Technology();
+
+var u1 = new Entities(100,15,6,['Thrust'],'Subsahara','Sand','Title5',10,4);
+*/
