@@ -5,7 +5,36 @@ var type = { 'Sand':{hp:-2,att:2,def:6,speed:10,energy:10,coolDown:4},
              'Mountain':{hp:-6,att:12,def:3,speed:3,energy:7,coolDown:-4},
              'Aqua':{hp:14,att:0,def:-8,speed:8,energy:12,coolDown:-5},
              'Swamp':{hp:10,att:1,def:3,speed:2,energy:6,coolDown:-10}};
+function unitTypeController(a){
+	this.endTimer = function(){};
+	this.setTimer = function(n){
+	setTimeout(function(){
+       if(a.coolDown){}},n);
+	};
+}
 
+function positionOccupied(x,y){return board.gameBoard[x][y].occupied ? true:false}
+
+//console.log(Math.floor(1/2 + 2 * (4/5) + 1));
+
+function damage(a,b){
+	  if(a.Entities === 'Entities'){
+	  	   // a.att * (a.att/a.def) -= b.hp;
+	  	   }
+  	  if(a.Spell === 'Spell'){
+	  	
+	  }
+	  if(a.Technology === 'Technology'){
+	  	
+	  }
+}
+function unitTypeController(a){
+	this.endTimer = function(){};
+	this.setTimer = function(n){
+	setTimeout(function(){
+       if(a.coolDown){}},n);
+	};
+}
 
 
 function Entities(hp,att,def,sped,abi,ty,upn,ad,e,cd){
