@@ -1,10 +1,9 @@
 function Board(){
+	
 	this.gameBoard = [];
 	this.CardType = [];
-	var that = this;
-	
-	
-	this.generateBoard = function(){
+
+	  this.generateBoard = function(){
 		    var arr = [];
 		     for(var i = 0; i < 5;i++){
 		     	 arr.push([]);
@@ -13,12 +12,12 @@ function Board(){
 	};
 	
 	this.setGameRules = function(){
-    	                for(var i =0; i < this.gameBoard.length;i++){
+    	for(var i =0; i < this.gameBoard.length;i++){
 				    this.gameBoard[i].push(new Spell('','','','',''));
 					this.gameBoard[i].push(new Technology('','','','',''));
-					this.gameBoard[i].push(new Unit('','','','',''));
+					this.gameBoard[i].push(new Entities('','','','',''));
 	
-					this.gameBoard[i].push(new Unit('','','','',''));
+					this.gameBoard[i].push(new Entities('','','','',''));
 					this.gameBoard[i].push(new Technology('','','','',''));
 					this.gameBoard[i].push(new Spell('','','','',''));
 		}
@@ -26,9 +25,10 @@ function Board(){
 	
    this.globalAffect = function (fn){
    	if(typeof fn === 'function'){
-	  for(var i = 0; i < that.gameBoard.length;i++){
-		for(var j = 0; j < that.gameBoard[i].length;j++){
-			fn(that.gameBoard[i][j]);
+   		
+	for(var i = 0; i < this.gameBoard.length;i++){
+		for(var j = 0; j < this.gameBoard[i].length;j++){
+			fn(this.gameBoard[i][j]);
    		  }
         }
 	  }
@@ -37,19 +37,15 @@ function Board(){
 		 this.field = ['EMP','METALSHEET','EARTH',"SPACE",'SPEED'];
 	   switch(this.field[i]){
 	   	  case 'EMP':
-	   	  	     that.globalAffect(fn);
+	   	  	     this.globalAffect(fn);
 	   	  break;
 	   	  case 'METALSHEET':
-			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'EARTH':
-			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'SPACE':
-			    that.globalAffect(fn);
 	   	  break;
 	   	  case 'SPEED':
-			    that.globalAffect(fn);
 	   	  break;
 	   }	
 	};	
@@ -72,7 +68,7 @@ function Board(){
      }
   };
   
- 		// works
+ 	// works
 	this.place = function(posx,posy,typ,obj,posOnBoard){
 		if(typeof obj !== 'object'){ return 'Not an object'}
 		var caro;
@@ -84,8 +80,8 @@ function Board(){
   		  	  case 'Technology':
   		  	   if(posy == 1 || posy == 4){ return 'Technology'}
   		  	  break;
-  		  	  case 'Unit':
-  		  	   if(posy === 2 || posy === 3){return 'Unit'}
+  		  	  case 'Entities':
+  		  	   if(posy === 2 || posy === 3){return 'Entities'}
         	  break;
   		  	  default: console.log('Not a Valid Number');
   		  }
@@ -93,14 +89,16 @@ function Board(){
     var r = posOnBoard0(posOnBoard);
    	if(r === typ){
      if(Object.keys(this.gameBoard[posx][posy])[0] === typ){
-     	this.gameBoard[posx][posy] = obj
-     	this.gameBoard[posx][posy].occupied = true;}
-     }else{console.log('Cannot Place This Unit Here')}
+     	this.gameBoard[posx][posy] = obj;
+     	this.gameBoard[posx][posy].occupied = true;
+     	obj.position = [posx,posy]; 
+     	
+     }
+     }else{console.log('Cannot Place This Entities Here')}
     
   };
-	
    this.removeCard = function(posx,posy){
-   	        var card = that.gameBoard[posx][posy];
+   	        var card = this.gameBoard[posx][posy];
    	       
    	        var keys = Object.keys(this.gameBoard[posx][posy]);
    	       
@@ -115,13 +113,9 @@ function Board(){
    	        //console.log(card);
    };
 	this.gameBoard = this.generateBoard();
-        this.setGameRules();
+    this.setGameRules();
 
 }
-
-
-
-var board = new Board();
 /*
 var u = new Unit('','','','','');
 var u1 = new Unit('100','','','','');
