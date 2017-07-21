@@ -1,0 +1,86 @@
+.CardSpace:not(li){
+  border: 3px solid black;  
+  height:120px;
+  width:120px;
+  display:inline-block;
+  margin:2px;
+  font-size:9px; 
+}
+.Card_M{
+   text-align:center;
+   border: 3px solid purple;  
+   height:115px;
+   width:115px;
+   z-index: 100;
+   position: absolute;
+   display:block;
+}
+.Card_G{
+   z-index: 100;
+   position: absolute;
+   display:block;
+   border: 2px solid black;  
+   height:75px;
+   width:75px;
+}
+.Card_S{
+  
+   border: 2px solid blue;  
+   height:75px;
+   width:75px;
+}
+.Card_T{
+   border: 2px solid silver;  
+   height:75px;
+   width:75px;   z-index: 100;
+   position: absolute;
+   display:block;
+}
+
+#BattleField{
+    position:relative;
+    left:300px;
+}
+.CName{
+   border: 2px solid black;  
+   height:20px;
+   width:90%;
+   position:relative;
+   left:5%;
+  
+}
+.CardImage{
+   border: 2px solid silver;  
+   height:35%;
+   width:90%;
+   position:relative;
+   left:5%;
+   top:3%;
+}
+.Mana{
+   border: 2px solid silver;  
+   height:30px;
+   width:65px;
+}
+.Att,.Def,.Health{
+   position:relative;
+   right:1%;
+   top:-35px; 
+   
+}
+.Def{
+  
+}
+li{ 
+  display:block;
+  list-style:none;
+ }
+.Des{
+   border: 2px solid brown;  
+   height:20px;
+   width:65px;
+   position:relative;
+   bottom:35px;
+   left:4%;
+   
+}
